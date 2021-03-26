@@ -1,3 +1,5 @@
+# ----------------Seahorse-analyzeR: add columns--------------
+
 #Adds to dt the following necessary columns: 
 #      cell_culture, well_n, interval, treatment, fccp, fccp_n2, sample_id
 #Also edits the format of fibro_id
@@ -46,7 +48,6 @@ create_column_treatment <- function(dt) {
 dt1$ocr <- as.numeric(gsub(",","",dt1$ocr))
 dt1$ecar <- as.numeric(gsub(",","",dt1$ecar))
 dt1$ppr <- as.numeric(gsub(",","",dt1$ppr))
-dt1$V1 <- NULL
 dt1$fccp_n <- substr_right(dt1$fibro_id, 3, 3)
 dt1$fccp_n2 <- substr_right(dt1$fibro_id, 1, 1)
 dt1$fibro_id <- edit_id(dt1, control_ids)

@@ -1,6 +1,11 @@
 #-------------------bind all rate data-----------------------------
 #requirements: tidyverse
 
+#Removes the last n-characters from string x
+substr_min_right <- function(x, n) {
+     substr(x, 1, nchar(x)-n)
+}
+
 #remember current working directory
 curr_wd <- getwd()
 
@@ -13,7 +18,7 @@ file_list <- list.files(path = ".")
 #initiate a blank data frame
 all_rate_data <- data.frame()
 
-#read each file, add column headers, add column with of origin-file
+#read each file, add column headers, add column with name of origin-file
 for (i in 1:length(file_list)){
      temp_data <- data.frame()
      temp_data <- fread(file_list[i])
@@ -29,8 +34,9 @@ for (i in 1:length(file_list)){
 setwd(curr_wd)
 
 #Write to a file
-write.csv(all_rate_data, file = "all_rate_data.txt")
+write_delim(all_rate_data, path = "all_rate_data.txt", delim = "\t")
 
 rm(i)
 rm(file_list)
 rm(curr_wd)
+rm(all_rate_data)

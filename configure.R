@@ -1,8 +1,8 @@
-# Configuration file for Seahorse interpreter
+## ------------Configuration file for Seahorse-analyzeR-------------
 
 # Libraries needed
 library("data.table")
 library("tidyverse")
 
 # Functions needed
-source('load_functions2.R')
+source('load_functions.R')
